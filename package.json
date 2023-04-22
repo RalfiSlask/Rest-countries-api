@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "country-iso-3-to-2": "^1.1.1",
+    "iso-3166-1": "^2.1.1"
+  }
+}

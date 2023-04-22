@@ -1,2 +1,21 @@
-# Rest-countries-api
-Project that uses the rest-countries api to dynamically display countries and their information
+# Frontend Mentor - Tip Calculator App
+
+![Design preview for the Password generator app coding challenge](./preview.png)
+
+
+Built with
+
+- Semantic HTML5 markup
+- CSS
+- Flexbox
+- Javascript
+
+Author
+
+- Frontend Mentor - @RalfiSlask
+- GitHub - https://github.com/RalfiSlask
+
+Live server
+
+- https://ralfislask.github.io/Tip-calculator/
+
