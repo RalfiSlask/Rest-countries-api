@@ -1,4 +1,4 @@
-# Frontend Mentor - Tip Calculator App
+# Frontend Mentor - Rest-countries-API
 
 ![Design preview for the Password generator app coding challenge](./preview.png)
 
@@ -17,5 +17,5 @@ Author
 
 Live server
 
-- https://ralfislask.github.io/Tip-calculator/
+
 
