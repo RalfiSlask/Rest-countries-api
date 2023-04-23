@@ -21,7 +21,6 @@ const backToPreviousPage = () => {
 
 backToPreviousPage();
 
-
 const fetchCountryAPI = async () => {
     const response = await fetch("https://restcountries.com/v3.1/all?");
     const jsonData = await response.json();
@@ -42,8 +41,6 @@ const activateDarkmode = () => {
 
 activateDarkmode();
 
-
-
 const isDarkThemeOn = (containers) => {
     let theme = localStorage.getItem("theme");
     if(theme == "dark") {
@@ -58,9 +55,6 @@ const isDarkThemeOn = (containers) => {
         })
     }
 }
-
-
-
 
 // getting the bordername by fetching API with the country-code from the borderArray and with it getting the name
 
@@ -77,11 +71,9 @@ const getBorderNames = async (borderArray) => {
             let jsD = await prom.json()
             let border_country = jsD[0].name.common;
             border.innerHTML = border_country;
-            
         }
         containers = document.querySelectorAll(".container");
         isDarkThemeOn(containers)
-       
     }
 }
 
@@ -121,9 +113,6 @@ const createCountryContainer = (countries) => {
         }
     })
 }
-
-
-
 
 const handleData = async () => {
     let jsData = await fetchCountryAPI()

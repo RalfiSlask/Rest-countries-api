@@ -7,7 +7,6 @@ const main = document.querySelector("main");
 const moon_logo = document.querySelector(".moon-logo");
 const regions = document.querySelectorAll(".container-dropdown p");
 const body = document.querySelector("body");
-
 let containers = document.querySelectorAll(".container");
 let actualTheme = body.classList;
 
@@ -27,6 +26,20 @@ const activateDarkmode = () => {
     }
 }
 
+const isDarkThemeOn = (cont) => {
+    let theme = localStorage.getItem("theme");
+    if(theme == "dark") {
+        body.classList.add("dark");
+        cont.forEach(container => {
+            container.classList.add("dark2");
+        })
+    } else {
+        body.classList.remove("dark");
+        cont.forEach(container => {
+            container.classList.remove("dark2");
+        })
+    }
+}
 
 const fetchRestApi = async () => {
     try {
@@ -40,11 +53,9 @@ const fetchRestApi = async () => {
 
 const onLoad = () => {
     document.addEventListener("DOMContentLoaded", () => {
-        localStorage.setItem("theme", actualTheme)
         regionDropdownOnClick();
         activateDarkmode();
         fetchRestApi(); 
-       
     })
 }
 
@@ -94,16 +105,6 @@ const createCountryContainers = (flag, name, population, region, capital) => {
     </div>`
     section_countries.append(container_country);
 }
-/* 
-const isDarkThemeOn = (cont) => {
-    let theme = localStorage.getItem("theme");
-    if(theme == "dark") {
-        body.classList.add("dark"); 
-        cont.classList.add("dark2");
-    } else {
-        body.classList.remove("dark");
-    }
-} */
 
 const handleData = async () => {
     const jsData = await fetchRestApi();
@@ -114,13 +115,14 @@ const handleData = async () => {
         const region = country.region;
         const population = country.population;
         const capital = country.capital;
-        createCountryContainers(flag, name, population, region, capital);
-        containers = document.querySelectorAll(".container");
+        createCountryContainers(flag, name, population, region, capital);  
         let countries = document.querySelectorAll(".container-country");
         filterByRegion(region, countries[i]); 
         searchForCountry(countries[i], name);
         clickingOnCountries(countries[i], name);
     }     
+    containers = document.querySelectorAll(".container");
+    isDarkThemeOn(containers);
 }
 
 
